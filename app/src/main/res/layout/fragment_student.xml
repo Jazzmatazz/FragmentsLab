@@ -1,25 +1,25 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
              xmlns:tools="http://schemas.android.com/tools"
+              android:id="@+id/fragment_student"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
               android:orientation="vertical"
-             tools:context="com.bignerdranch.android.fragments_lab.StudentFragment">
+             tools:context="jpeders.edu.uw.fragmentslab.StudentFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:id="@+id/student_id"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="wrap_content"/>
 
     <TextView
         android:id="@+id/student_name"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="wrap_content"/>
 
     <TextView
         android:id="@+id/student_major"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="wrap_content"/>
 
     <Button
         android:id="@+id/submit_button"
