@@ -32,32 +32,46 @@ public class StudentFragment extends Fragment {
         super.onCreate(savedInstanceState);
     }
 
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+
+        View v = inflater.inflate(R.layout.fragment_student, container, false);
+        TextView studentId = (TextView) v.findViewById(R.id.student_id);
+
+
+        TextView name = (TextView) v.findViewById(R.id.student_name);
+        name.setText("Jasmine");
+        studentId.setText("12");
+
+        TextView major = (TextView) v.findViewById(R.id.student_major);
+        major.setText("Computer Science");
+
+
+        // Inflate the layout for this fragment
+       // return inflater.inflate(R.layout.fragment_student, container, false);
+        return v;
+    }
+
 //    @Override
 //    public View onCreateView(LayoutInflater inflater, ViewGroup container,
 //                             Bundle savedInstanceState) {
 //        // Inflate the layout for this fragment
-//        return inflater.inflate(R.layout.fragment_student, container, false);
+//        View v = inflater.inflate(R.layout.fragment_student, container, false);
+//        TextView studentId = (TextView) v.findViewBy(R.id.student_id);
+//
+//
+//
+//
+//        Button submitButton = (Button) v.findViewById(R.id.submit_button);
+//        submitButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                //call method to launch fragment
+//
+//            }
+//        });
 //    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_student, container, false);
-        TextView studentId = (TextView) v.findViewBy(R.id.student_id);
-
-
-
-
-        Button submitButton = (Button) v.findViewById(R.id.submit_button);
-        submitButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //call method to launch fragment
-
-            }
-        });
-    }
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
