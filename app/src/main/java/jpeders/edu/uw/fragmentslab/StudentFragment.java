@@ -23,9 +23,9 @@ public class StudentFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener; //main activity is listening to the fragment
 
-    public StudentFragment() {
-        // Required empty public constructor
-    }
+//    public StudentFragment() {
+//        // Required empty public constructor
+//    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -38,11 +38,10 @@ public class StudentFragment extends Fragment {
 
         View v = inflater.inflate(R.layout.fragment_student, container, false);
         TextView studentId = (TextView) v.findViewById(R.id.student_id);
-
+        studentId.setText("12");
 
         TextView name = (TextView) v.findViewById(R.id.student_name);
         name.setText("Jasmine");
-        studentId.setText("12");
 
         TextView major = (TextView) v.findViewById(R.id.student_major);
         major.setText("Computer Science");

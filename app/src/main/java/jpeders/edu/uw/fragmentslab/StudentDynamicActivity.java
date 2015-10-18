@@ -1,31 +1,33 @@
 package jpeders.edu.uw.fragmentslab;
 
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Menu;
-import android.view.MenuItem;
 
-public class StudentDynamicActivity extends AppCompatActivity
-        implements StudentFragment.OnFragmentInteractionListener{
+public class StudentDynamicActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_student);
-    }
+        setContentView(R.layout.activity_dynamic);
 
-public void onFragmentInteraction() {
+        if (savedInstanceState != null) return;
+        if (findViewById(R.id.activity_dynamic_container) != null) {
+            // Create an instance of ExampleFragment
+            StudentFragment studentFragment = new StudentFragment();
 
+            // Add the fragment to the 'fragment_container' FrameLayout
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.activity_dynamic_container, studentFragment).commit();
         }
+    }
 
 //    @Override
 //    public boolean onCreateOptionsMenu(Menu menu) {
 //        // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.menu_student, menu);
+//        getMenuInflater().inflate(R.menu.menu_second, menu);
 //        return true;
 //    }
-
+//
 //    @Override
 //    public boolean onOptionsItemSelected(MenuItem item) {
 //        // Handle action bar item clicks here. The action bar will
@@ -40,11 +42,4 @@ public void onFragmentInteraction() {
 //
 //        return super.onOptionsItemSelected(item);
 //    }
-
-    @Override
-    public void onFragmentInteraction(Uri uri) {
-//        getSupportFragmentManager()
-//                .beginTransaction()
-//                .replace() ///////////////////////////////********* Fill this in ******///////////
-    }
 }
