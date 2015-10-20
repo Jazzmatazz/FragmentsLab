@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import jpeders.edu.uw.fragmentslab.dummy.DummyContent;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -89,6 +91,31 @@ public class StudentFragment extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         public void onFragmentInteraction(Uri uri);
+    }
+
+    public static final String ARG_POSITION = "POSITION";
+    private int mCurrentPosition = -1;
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        // During startup, check if there are arguments passed to the fragment.
+        // onStart is a good place to do this because the layout has already been
+        // applied to the fragment at this point so we can safely call the method
+        // below that sets the article text.
+        Bundle args = getArguments();
+        if (args != null) {
+            // Set article based on argument passed in
+            updateStudentView(args.getInt(ARG_POSITION));
+        } else if (mCurrentPosition != -1) {
+            // Set article based on saved instance state defined during onCreateView
+            updateStudentView(mCurrentPosition);
+        }
+    }
+
+    public void updateStudentView(int pos) {
+        TextView tv = (TextView) getActivity().findViewById(R.id.student_name);
+        tv.setText((CharSequence) DummyContent.ITEMS.get(pos).getName());
     }
 
 }

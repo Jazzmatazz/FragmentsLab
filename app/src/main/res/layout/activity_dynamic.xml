@@ -2,7 +2,7 @@
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:context="jpeders.edu.uw.fragmentslab.StudentFragment"
-                android:id="@+id/student_activity"   >
+                tools:context="jpeders.edu.uw.fragmentslab.StudentDynamicActivity"
+                android:id="@+id/student_fragment_container"   >
 
 </FrameLayout>

@@ -1,6 +1,7 @@
 package jpeders.edu.uw.fragmentslab;
 
 import android.os.Bundle;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 
 public class StudentDynamicActivity extends AppCompatActivity {
@@ -11,15 +12,42 @@ public class StudentDynamicActivity extends AppCompatActivity {
         setContentView(R.layout.activity_student);
 
         if (savedInstanceState != null) return;
-        if (findViewById(R.id.fragment_student) != null) {
+        if (findViewById(R.id.student_fragment_container) != null) {
             // Create an instance of ExampleFragment
             StudentFragment studentFragment = new StudentFragment();
 
             // Add the fragment to the 'fragment_container' FrameLayout
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.fragment_student, studentFragment).commit();
+                    .add(R.id.student_fragment_container, studentFragment).commit();
         }
     }
+    public void onFragmentInteraction(int id) {
+    // Capture the student fragment from the activity layout
+        StudentFragment studentFragment = (StudentFragment)
+            getSupportFragmentManager().findFragmentById(R.id.student_fragment);
+
+        if (studentFragment != null) {
+        // If article frag is available, we're in two-pane layout...
+        // Call a method in the student fragment to update its content
+        studentFragment.updateStudentView(id);
+        } else {
+        // If the frag is not available, we're in the one-pane layout and must swap frags...
+        // Create fragment and give it an argument for the selected student
+        // Replace whatever is in the fragment_container view with this fragment,
+        // and add the transaction to the back stack so the user can navigate back
+            StudentFragment newFragment = new StudentFragment();
+            Bundle args = new Bundle();
+            args.putInt(StudentFragment.ARG_POSITION, id);
+            newFragment.setArguments(args);
+            FragmentTransaction transaction = getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.student_fragment_container, newFragment)
+                    .addToBackStack(null);
+                    // Commit the transaction
+                    transaction.commit();
+        }
+    }
+
 
 //    @Override
 //    public boolean onCreateOptionsMenu(Menu menu) {
