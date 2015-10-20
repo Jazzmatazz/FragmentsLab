@@ -8,16 +8,16 @@ public class StudentDynamicActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dynamic);
+        setContentView(R.layout.activity_student);
 
         if (savedInstanceState != null) return;
-        if (findViewById(R.id.activity_dynamic_container) != null) {
+        if (findViewById(R.id.fragment_student) != null) {
             // Create an instance of ExampleFragment
             StudentFragment studentFragment = new StudentFragment();
 
             // Add the fragment to the 'fragment_container' FrameLayout
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.activity_dynamic_container, studentFragment).commit();
+                    .add(R.id.fragment_student, studentFragment).commit();
         }
     }
 

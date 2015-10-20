@@ -3,6 +3,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 tools:context="jpeders.edu.uw.fragmentslab.StudentFragment"
-                android:id="@+id/activity_dynamic_container">
+                android:id="@+id/student_activity"   >
 
 </FrameLayout>
