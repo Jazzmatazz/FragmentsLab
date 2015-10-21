@@ -8,7 +8,7 @@ public class Student {
     private String name;
     private String major;
 
-    public void Student(int mId, String name, String major) {
+    public Student(int mId, String name, String major) {
         this.mId = mId;
         this.name = name;
         this.major = major;
@@ -40,9 +40,11 @@ public class Student {
         return mId;
     }
 
+    @Override
     public String toString() {
-        return mId + " - " + name + ", " + major;
+        return "Student " + name +
+                " id=" + mId;
     }
-};
+}
 
 
